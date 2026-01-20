@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Regard
 
-## Getting Started
+**Regard** est une application web moderne conçue pour vous aider à reprendre le contrôle de vos finances personnelles. Elle permet de centraliser la gestion de vos abonnements, de suivre vos dépenses ponctuelles et de fixer des objectifs d'épargne clairs.
 
-First, run the development server:
+![Regard Dashboard](public/window.svg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Fonctionnalités
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*   **Tableau de Bord Intuitif** : Une vue d'ensemble de vos finances, incluant le total de vos abonnements mensuels, vos économies actuelles et vos dernières dépenses.
+*   **Gestion des Abonnements** : Ajoutez et suivez vos abonnements récurrents (Netflix, Spotify, Internet, etc.) avec distinction des cycles de paiement (mensuel/annuel).
+*   **Suivi des Dépenses** : Enregistrez vos dépenses quotidiennes pour mieux comprendre où va votre argent.
+*   **Objectifs d'Épargne** : Fixez des objectifs (ex: "Voyage au Japon", "Nouvelle voiture") et visualisez votre progression grâce à des barres de progression dynamiques.
+*   **Calendrier des Prélèvements** : Anticipez vos factures grâce à une vue calendrier affichant les dates de prélèvement de vos abonnements.
+*   **Authentification Sécurisée** : Inscription et connexion sécurisées pour protéger vos données personnelles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Stack Technique
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   **Framework** : [Next.js 15+](https://nextjs.org/) (App Router)
+*   **Langage** : TypeScript
+*   **Styling** : Tailwind CSS (Design "Neo-Brutalism")
+*   **Base de Données** : PostgreSQL (via [Neon DB](https://neon.tech/))
+*   **ORM** : Drizzle ORM
+*   **Authentification** : NextAuth.js (v5 Beta)
+*   **Déploiement** : Compatible Vercel
 
-## Learn More
+## 📦 Installation & Démarrage
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Cloner le dépôt**
+    ```bash
+    git clone https://github.com/Lockxii/Regard.git
+    cd Regard
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Installer les dépendances**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Configuration des variables d'environnement**
+    Créez un fichier `.env` à la racine du projet et ajoutez vos clés (voir `.env.example` si disponible ou demandez à l'administrateur) :
+    ```env
+    DATABASE_URL="postgresql://user:password@host/dbname?sslmode=require"
+    AUTH_SECRET="votre_secret_genere_aleatoirement"
+    ```
 
-## Deploy on Vercel
+4.  **Initialiser la base de données**
+    ```bash
+    npx drizzle-kit push
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5.  **Lancer le serveur de développement**
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    L'application sera accessible sur `http://localhost:3000`.
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue pour discuter des changements majeurs avant de soumettre une Pull Request.
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
