@@ -11,6 +11,9 @@ const fontSans = Inter({
 export const metadata: Metadata = {
   title: 'Regard - Reprenez le contrôle de vos abonnements',
   description: 'Regard regroupe tous vos abonnements, t’alerte avant chaque prélèvement et t’aide à résilier facilement.',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({

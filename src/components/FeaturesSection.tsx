@@ -34,7 +34,7 @@ export function FeaturesSection() {
     <section id="solutions" className="py-24 bg-white border-t-2 border-black">
       <div className="container mx-auto max-w-5xl px-6">
         <div className="mb-16">
-          <h2 className="text-4xl font-black uppercase tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter">
             L'efficacité <br /> <span className="text-primary">sans compromis.</span>
           </h2>
         </div>

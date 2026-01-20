@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: black; }
+      .shadow { fill: #2563eb; }
+      .inner { fill: none; stroke: white; stroke-width: 2; }
+    </style>
+  </defs>
+  <!-- Shadow offset by roughly 2px relative to the 32x32 viewbox (simulated) -->
+  <rect x="8" y="8" width="20" height="20" class="shadow" transform="rotate(3 16 16)" />
+  <!-- Main Box -->
+  <rect x="6" y="6" width="20" height="20" class="bg" transform="rotate(3 16 16)" />
+  <!-- Inner Box (centered in the 20x20 rect) -->
+  <rect x="12" y="12" width="8" height="8" class="inner" transform="rotate(3 16 16)" rx="1" />
+</svg>

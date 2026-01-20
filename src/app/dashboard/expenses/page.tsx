@@ -3,6 +3,8 @@ import { db } from '@/db';
 import { expenses } from '@/db/schema';
 import { eq, desc } from 'drizzle-orm';
 import { AddExpenseForm } from '@/components/forms/AddExpenseForm';
+import { DeleteButton } from '@/components/DeleteButton';
+import { deleteExpense } from '@/app/actions';
 
 export default async function ExpensesPage() {
   const session = await auth();
@@ -30,6 +32,7 @@ export default async function ExpensesPage() {
                         <th className="p-4">Nom</th>
                         <th className="p-4">Catégorie</th>
                         <th className="p-4 text-right">Montant</th>
+                        <th className="p-4 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody className="text-sm">
@@ -39,6 +42,9 @@ export default async function ExpensesPage() {
                             <td className="p-4 font-bold">{e.name}</td>
                             <td className="p-4 text-gray-500">{e.category}</td>
                             <td className="p-4 text-right font-bold">{(e.amount / 100).toFixed(2)}€</td>
+                            <td className="p-4 text-center">
+                                <DeleteButton id={e.id} onDelete={deleteExpense} />
+                            </td>
                         </tr>
                     ))}
                 </tbody>

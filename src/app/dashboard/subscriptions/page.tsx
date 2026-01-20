@@ -3,6 +3,8 @@ import { db } from '@/db';
 import { subscriptions } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { AddSubscriptionForm } from '@/components/forms/AddSubscriptionForm';
+import { DeleteButton } from '@/components/DeleteButton';
+import { deleteSubscription } from '@/app/actions';
 
 export default async function SubscriptionsPage() {
   const session = await auth();
@@ -23,11 +25,15 @@ export default async function SubscriptionsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {subs.map(sub => (
-                <div key={sub.id} className="p-6 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
-                    <div className="absolute top-2 right-2 text-xs font-bold bg-yellow-200 px-2 py-1 border border-black uppercase">
-                        {sub.billingCycle === 'monthly' ? 'Mensuel' : 'Annuel'}
+                <div key={sub.id} className="p-6 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative group">
+                    <div className="absolute top-2 right-2 flex gap-2">
+                         <div className="text-xs font-bold bg-yellow-200 px-2 py-1 border border-black uppercase">
+                            {sub.billingCycle === 'monthly' ? 'Mensuel' : 'Annuel'}
+                        </div>
+                        <DeleteButton id={sub.id} onDelete={deleteSubscription} />
                     </div>
-                    <h3 className="font-black text-xl mb-1">{sub.name}</h3>
+                   
+                    <h3 className="font-black text-xl mb-1 pr-16 truncate">{sub.name}</h3>
                     <p className="text-2xl font-bold mb-4">{(sub.amount / 100).toFixed(2)}€</p>
                     <div className="text-xs space-y-1 text-gray-600">
                         <p>Prochain: {sub.nextPaymentDate}</p>
